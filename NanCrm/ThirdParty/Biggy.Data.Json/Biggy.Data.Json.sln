@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biggy.Data.Json", "Biggy.Data.Json.csproj", "{E293E04A-2B12-4E31-93EC-62FF14FA2306}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biggy.Core", "..\Biggy.Core\Biggy.Core.csproj", "{539CDF13-4CD2-41C2-9284-A7020A2563D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inflector", "..\..\..\..\Free_Code_02\temp\Inflector-master\Inflector-master\Inflector\Inflector.csproj", "{D5677360-4354-4BA3-9E23-DB169C22BEAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.Net40", "..\..\..\..\Free_Code_02\temp\Json60r7 (1)\Source\Src\Newtonsoft.Json\Newtonsoft.Json.Net40.csproj", "{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E293E04A-2B12-4E31-93EC-62FF14FA2306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E293E04A-2B12-4E31-93EC-62FF14FA2306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E293E04A-2B12-4E31-93EC-62FF14FA2306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E293E04A-2B12-4E31-93EC-62FF14FA2306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{539CDF13-4CD2-41C2-9284-A7020A2563D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{539CDF13-4CD2-41C2-9284-A7020A2563D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{539CDF13-4CD2-41C2-9284-A7020A2563D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{539CDF13-4CD2-41C2-9284-A7020A2563D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5677360-4354-4BA3-9E23-DB169C22BEAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5677360-4354-4BA3-9E23-DB169C22BEAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5677360-4354-4BA3-9E23-DB169C22BEAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5677360-4354-4BA3-9E23-DB169C22BEAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
