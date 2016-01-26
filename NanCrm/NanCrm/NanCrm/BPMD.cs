@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Nan.Controls;
 
 namespace NanCrm
 {
-    public partial class Form1 : Form
+    public partial class BPMD : FormEx
     {
-        public Form1()
+        public BPMD()
         {
             InitializeComponent();
         }
