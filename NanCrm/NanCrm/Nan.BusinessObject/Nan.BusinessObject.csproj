@@ -47,6 +47,15 @@
     <Compile Include="BOProductSearchPlan.cs" />
     <Compile Include="BOPSHistory.cs" />
     <Compile Include="BOSearchPlantf.cs" />
+    <Compile Include="BOMktDetail.cs" />
+    <Compile Include="BOMarket.cs" />
+    <Compile Include="BOKWList.cs" />
+    <Compile Include="BOKeyWord.cs" />
+    <Compile Include="BOKWLDetail.cs" />
+    <Compile Include="BOCountry.cs" />
+    <Compile Include="BOCategory.cs" />
+    <Compile Include="BOStatus.cs" />
+    <Compile Include="BOBPSearchHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

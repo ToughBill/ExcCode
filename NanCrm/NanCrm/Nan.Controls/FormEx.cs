@@ -51,5 +51,17 @@ namespace Nan.Controls
                 }
             }
         }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is ComboBoxEx)
+                {
+                    ComboBoxEx comb = (ComboBoxEx)ctrl;
+                    comb.InitSource();
+                }
+            }
+        }
     }
 }
