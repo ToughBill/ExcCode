@@ -116,6 +116,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ThirdParty\Biggy.Core\Biggy.Core.csproj">
+      <Project>{539CDF13-4CD2-41C2-9284-A7020A2563D4}</Project>
+      <Name>Biggy.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ThirdParty\Biggy.Data.Json\Biggy.Data.Json.csproj">
+      <Project>{E293E04A-2B12-4E31-93EC-62FF14FA2306}</Project>
+      <Name>Biggy.Data.Json</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ThirdParty\Newtonsoft.Json\Newtonsoft.Json.Net40.csproj">
       <Project>{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}</Project>
       <Name>Newtonsoft.Json.Net40</Name>

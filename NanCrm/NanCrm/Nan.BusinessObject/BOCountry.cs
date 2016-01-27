@@ -13,6 +13,9 @@ namespace Nan.BusinessObjects
         public string   Alias { get; set; }
         public string   Capital { get; set; }
 
-        
+        public BOCountry()
+        {
+
+        }
     }
 }

@@ -11,6 +11,7 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using NanCrm.Setup;
+using Biggy.Data.Json;
 
 namespace NanCrm
 {
@@ -90,6 +91,9 @@ namespace NanCrm
                     Country cty = new Country();
                     cty.MdiParent = this.MdiParent;
                     cty.Show();
+                    break;
+                case MenuID.Setup_Market:
+                    
                     break;
                 case MenuID.BP_MD:
                     BPMD bpmd = new BPMD();
