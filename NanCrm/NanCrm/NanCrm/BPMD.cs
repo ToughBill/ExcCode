@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Nan.Controls;
+using Nan.BusinessObjects;
 
 namespace NanCrm
 {
     public partial class BPMD : FormEx
     {
+        private BOBP m_boBP;
+ 
         public BPMD()
         {
             InitializeComponent();
+            
         }
     }
 }

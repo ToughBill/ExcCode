@@ -67,6 +67,12 @@
     <Compile Include="TextBoxEx.designer.cs">
       <DependentUpon>TextBoxEx.cs</DependentUpon>
     </Compile>
+    <Compile Include="TreeMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TreeMenu.Designer.cs">
+      <DependentUpon>TreeMenu.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nan.BusinessObject\Nan.BusinessObject.csproj">
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TextBoxEx.resx">
       <DependentUpon>TextBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeMenu.resx">
+      <DependentUpon>TreeMenu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

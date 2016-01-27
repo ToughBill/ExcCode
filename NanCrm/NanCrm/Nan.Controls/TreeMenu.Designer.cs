@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace Nan.Controls
 {
     partial class TreeMenu
     {

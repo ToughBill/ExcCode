@@ -8,9 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
-namespace WindowsFormsApplication1
+namespace Nan.Controls
 {
-    public enum NodeType
+    public enum MenuType
     {
         Invalid,
         Folder,
@@ -124,12 +124,12 @@ namespace WindowsFormsApplication1
 
         private void DrawMenuNode(Graphics g, Rectangle rect, TreeMenuNode node, MenuState state)
         {
-            if (node.Type == NodeType.Invalid) return;
-            if (node.Type == NodeType.Folder)
+            if (node.Type == MenuType.Invalid) return;
+            if (node.Type == MenuType.Folder)
             {
                 DrawFolder(g, rect, node, state);
             }
-            else if (node.Type == NodeType.Leaf)
+            else if (node.Type == MenuType.Leaf)
             {
                 DrawLeaf(g, rect, node, state);
             }
@@ -220,9 +220,9 @@ namespace WindowsFormsApplication1
 
     public class TreeMenuNode : TreeNode
     {
-        public NodeType Type { get; set; }
+        public MenuType Type { get; set; }
 
-        public TreeMenuNode(string text, NodeType type):base(text)
+        public TreeMenuNode(string text, MenuType type):base(text)
         {
             Type = type;
         }
