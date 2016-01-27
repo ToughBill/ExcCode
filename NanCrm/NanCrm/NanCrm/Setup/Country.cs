@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Nan.Controls;
 using BrightIdeasSoftware;
+using Nan.BusinessObjects;
 
 namespace NanCrm.Setup
 {
@@ -25,7 +26,8 @@ namespace NanCrm.Setup
 
         public void LoadGridData(FormEx form, ObjectListView objList)
         {
-            
+            List<BOCountry> ctybos = new List<BOCountry>();
+            objList.SetObjects(ctybos);
         }
     }
 }

@@ -76,6 +76,12 @@
     <Compile Include="Setup\Country.Designer.cs">
       <DependentUpon>Country.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setup\Market.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\Market.Designer.cs">
+      <DependentUpon>Market.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BPMD.resx">
       <DependentUpon>BPMD.cs</DependentUpon>
     </EmbeddedResource>

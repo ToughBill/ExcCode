@@ -65,11 +65,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Free_Code_02\temp\Inflector-master\Inflector-master\Inflector\Inflector.csproj">
+    <ProjectReference Include="..\Inflector\Inflector.csproj">
       <Project>{D5677360-4354-4BA3-9E23-DB169C22BEAB}</Project>
       <Name>Inflector</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Free_Code_02\temp\Json60r7 %281%29\Source\Src\Newtonsoft.Json\Newtonsoft.Json.Net40.csproj">
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.Net40.csproj">
       <Project>{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}</Project>
       <Name>Newtonsoft.Json.Net40</Name>
     </ProjectReference>
