@@ -5,6 +5,11 @@
  * Date: 23/09/2008 11:15 AM
  *
  * Change log:
+ * v2.8.1
+ * 2014-11-28  JPP  - Fixed issue in RefreshObject() where a model with less children than previous that could not
+ *                    longer be expanded would cause an exception.
+ * 2014-11-23  JPP  - Fixed an issue where collapsing a branch could leave the internal object->index map out of date.
+ * v2.8
  * 2014-10-08  JPP  - Fixed an issue where pre-expanded branches would not initially expand properly
  * 2014-09-29  JPP  - Fixed issue where RefreshObject() on a root object could cause exceptions
  *                  - Fixed issue where CollapseAll() while filtering could cause exception
@@ -1275,7 +1280,7 @@ namespace BrightIdeasSoftware
                 // Remove the visible descendents from after the branch itself
                 int index = this.GetObjectIndex(model);
                 this.objectList.RemoveRange(index + 1, count);
-                this.RebuildObjectMap(index + 1);
+                this.RebuildObjectMap(0);
                 return index;
             }
 
@@ -1375,6 +1380,9 @@ namespace BrightIdeasSoftware
                 // Insert the refreshed children if the branch can expand and is expanded
                 if (br.CanExpand && br.IsExpanded)
                     this.InsertChildren(br, index + 1);
+                else
+                    this.RebuildObjectMap(index);
+
                 return index;
             }
 
