@@ -177,12 +177,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\NanCrm\Nan.BusinessObject\Nan.BusinessObject.csproj">
-      <Project>{62593AF0-D51F-4D94-A38F-9190CB776F6E}</Project>
-      <Name>Nan.BusinessObject</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

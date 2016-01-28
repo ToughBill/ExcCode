@@ -238,5 +238,20 @@ namespace Biggy.Core {
     {
         return _items.Find(match);
     }
+
+     public List<T> GetList()
+    {
+        return _items;
+    }
+      public void SetList(List<T> list)
+     {
+         foreach (var item in list)
+         {
+             if (!_items.Contains(item))
+             {
+                 this.Add(item);
+             }
+         }
+     }
   }
 }

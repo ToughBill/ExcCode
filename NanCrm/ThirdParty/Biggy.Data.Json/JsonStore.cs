@@ -384,7 +384,12 @@ namespace Biggy.Data.Json
                 var json = File.ReadAllText(this.DbPath);
                 result = JsonConvert.DeserializeObject<List<T>>(json);
             }
+            if (result == null)
+            {
+                result = new List<T>();
+            }
             _items = result.ToList();
+            
             return result;
         }
 
