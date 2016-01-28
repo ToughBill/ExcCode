@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Biggy.Data.Json;
+using Biggy.Core;
 
 namespace Nan.BusinessObjects
 {
@@ -16,6 +18,14 @@ namespace Nan.BusinessObjects
         public BOCountry()
         {
             ID = GetNextID();
+        }
+
+        public override bool Add()
+        {
+            JsonStore<BOCountry> tbID = (JsonStore<BOCountry>)m_dbConn.CreateStoreFor<BOCountry>();
+            var boIdList = new BiggyList<BOCountry>(tbID);
+
+            return base.Add();
         }
     }
 }

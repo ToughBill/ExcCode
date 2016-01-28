@@ -105,6 +105,7 @@ namespace Nan.Controls
             }
             else if (m_formMode == FormMode.Update)
             {
+
                 m_bo.Update();
             }
         }
