@@ -550,6 +550,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Runtime.Serialization.Formatters;
 using System.Threading;
+using Nan.BusinessObjects;
 
 namespace BrightIdeasSoftware
 {
@@ -836,9 +837,18 @@ namespace BrightIdeasSoftware
         private static SimpleItemStyle sDefaultDisabledItemStyle;
 
         #endregion
-
+        
         #region Public properties
 
+        private BOIDEnum m_boId;
+        /// <summary>
+        /// Business Object Id
+        /// </summary>
+        public BOIDEnum BOID
+        {
+            get { return m_boId; }
+            set { m_boId = value; }
+        }
         /// <summary>
         /// Gets or sets an model filter that is combined with any column filtering that the end-user specifies.
         /// </summary>
