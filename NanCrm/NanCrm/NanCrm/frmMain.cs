@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Nan.Database;
+using System.IO;
 
 namespace NanCrm
 {
@@ -20,6 +22,7 @@ namespace NanCrm
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            NanDataBase.InitDatabase(Path.Combine(Application.StartupPath, "Database"), "NanCrm_v1");
             InitMainMenu();
         }
 

@@ -15,7 +15,7 @@ namespace Nan.BusinessObjects
 
         public BOCountry()
         {
-
+            ID = GetNextID();
         }
     }
 }

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{62593AF0-D51F-4D94-A38F-9190CB776F6E}</ProjectGuid>
+    <ProjectGuid>{24EA9AEE-086B-4F2D-8CFD-EF575DD8F2F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nan.BusinessObject</RootNamespace>
-    <AssemblyName>Nan.BusinessObject</AssemblyName>
+    <RootNamespace>Nan.Database</RootNamespace>
+    <AssemblyName>Nan.Database</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,33 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BO\BOBP.cs" />
-    <Compile Include="BOFactory.cs" />
-    <Compile Include="BOIDEnum.cs" />
-    <Compile Include="BOIDs.cs" />
-    <Compile Include="BO\BOProduct.cs" />
-    <Compile Include="BO\BusinessObject.cs" />
-    <Compile Include="BO\BOProductSearchPlan.cs" />
-    <Compile Include="BO\BOProductSearchResult.cs" />
-    <Compile Include="BO\BOSearchPlantf.cs" />
-    <Compile Include="BO\BOMktDetail.cs" />
-    <Compile Include="BO\BOMarket.cs" />
-    <Compile Include="BO\BOKWList.cs" />
-    <Compile Include="BO\BOKeyWord.cs" />
-    <Compile Include="BO\BOKWLDetail.cs" />
-    <Compile Include="BO\BOCountry.cs" />
-    <Compile Include="BO\BOCategory.cs" />
-    <Compile Include="BO\BOStatus.cs" />
-    <Compile Include="BO\BOBPSearchResult.cs" />
-    <Compile Include="BO\BOBPSearchPlan.cs" />
-    <Compile Include="Database\NanDataBase.cs" />
+    <Compile Include="NanDataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ThirdParty\Biggy.Core\Biggy.Core.csproj">
-      <Project>{539CDF13-4CD2-41C2-9284-A7020A2563D4}</Project>
-      <Name>Biggy.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ThirdParty\Biggy.Data.Json\Biggy.Data.Json.csproj">
       <Project>{E293E04A-2B12-4E31-93EC-62FF14FA2306}</Project>
       <Name>Biggy.Data.Json</Name>

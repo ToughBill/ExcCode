@@ -27,7 +27,7 @@ namespace NanCrm.Setup
         public void LoadGridData(FormEx form, ObjectListView objList)
         {
             List<BOCountry> ctybos = new List<BOCountry>();
-            ctybos.Add(new BOCountry() { ID = 1, Name = "fasdf", ForeName ="asfasdf"});
+            ctybos.Add(new BOCountry() { Name = "fasdf", ForeName ="asfasdf"});
             objList.SetObjects(ctybos);
         }
     }

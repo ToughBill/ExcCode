@@ -12,9 +12,16 @@ namespace Nan.Controls
 {
     public partial class FormEx : Form
     {
+        private FormMode m_formMode;
+        public FormMode FormMode
+        {
+            get { return m_formMode; }
+            set { m_formMode = value; }
+        }
         public FormEx()
         {
             InitializeComponent();
+            m_formMode = FormMode.Ok;
         }
 
         private string m_tableSource;
@@ -66,9 +73,22 @@ namespace Nan.Controls
             base.OnLoad(e);
         }
 
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            m_formMode = FormMode.Update;
+            btnOk.Text = "更新";
+            base.OnKeyDown(e);
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+    }
+
+    public enum FormMode
+    {
+        Ok,
+        Update
     }
 }

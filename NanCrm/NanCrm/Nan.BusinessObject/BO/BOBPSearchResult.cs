@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Nan.BusinessObjects
 {
-    public class BOPSHistory : BusinessObject
+    public class BOBPSearchResult : BusinessObject
     {
         public int      ID { get; set; }
-        public int      PSPId { get; set; }
-        public string   Product { get; set; }
+        public int      CSPId { get; set; }
+        public string   BP { get; set; }
         public string   Link { get; set; }
         public int?     Plantf { get; set; }
         public string   KeyWord { get; set; }

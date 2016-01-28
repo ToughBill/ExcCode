@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Nan.BusinessObjects
 {
-    public class SearchPlantf : BusinessObject
+    public class BOSearchPlantf : BusinessObject
     {
         public int      ID { get; set; }
         public string   Name { get; set; }
