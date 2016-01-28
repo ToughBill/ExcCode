@@ -47,7 +47,11 @@ namespace Biggy.Core {
         return false;
       }
     }
-
+    public T this[int index]
+    {
+        get { return _items[index]; }
+        set { _items[index] = value; } 
+    }
     public virtual int Update(T item) {
       if (this.UpdateLiveDataAllowed) {
         this.Store.Update(item);
@@ -228,6 +232,11 @@ namespace Biggy.Core {
         args.Items = _items;
         this.Saved.Invoke(this, args);
       }
+    }
+
+    public T Find(Predicate<T> match)
+    {
+        return _items.Find(match);
     }
   }
 }
