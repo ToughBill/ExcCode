@@ -15,7 +15,7 @@ namespace NanCrm
     {
         private BOBP m_boBP;
  
-        public BPMD()
+        public BPMD(BOIDEnum boid):base(boid)
         {
             InitializeComponent();
             

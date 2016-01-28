@@ -14,7 +14,8 @@ namespace NanCrm.Setup
 {
     public partial class Country : FormEx
     {
-        public Country()
+        public Country(BOIDEnum boId)
+            : base(boId)
         {
             InitializeComponent();
         }

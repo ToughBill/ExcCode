@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Nan.Controls;
+using Nan.BusinessObjects;
 
 namespace NanCrm.Setup
 {
     public partial class Market : FormEx
     {
-        public Market()
+        public Market(BOIDEnum boid):base(boid)
         {
             InitializeComponent();
         }

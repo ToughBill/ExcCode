@@ -18,18 +18,18 @@ namespace Nan.Controls
             m_vv = new List<ValidValue>();
         }
 
-        public string TableSource { get; set; }
+        public BOIDEnum BOID { get; set; }
         public string DesField { get; set; }
         public string KeyField { get; set; }
         private List<ValidValue> m_vv;
 
         public void InitSource()
         {
-            if (TableSource == null || TableSource.Length <= 0)
+            if (BOID == BOIDEnum.Invalid)
             {
                 return;
             }
-            BusinessObject bo = BOFactory.GetBO(TableSource);
+            BusinessObject bo = BOFactory.GetBO(BOID);
 
             this.DataSource = bo.GetValieValue(KeyField, DesField);
             this.ValueMember = "Value";

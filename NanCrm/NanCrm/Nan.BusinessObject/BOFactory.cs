@@ -14,15 +14,15 @@ namespace Nan.BusinessObjects
     }
     public class BOFactory
     {
-        public static BusinessObject GetBO(string bo)
+        public static BusinessObject GetBO(BOIDEnum boid)
         {
-            if (bo == "OBIN")
+            BusinessObject bo = null;
+            switch (boid)
             {
-                //return new POOBIN();
-            }
-            else if (bo == "OWHS")
-            {
-                //return new POOWHS();
+                case BOIDEnum.Country:
+                    bo = new BOCountry();
+                    break;
+                default: break;
             }
 
             return null;

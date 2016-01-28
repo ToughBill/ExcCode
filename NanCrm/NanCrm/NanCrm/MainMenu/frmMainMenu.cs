@@ -12,6 +12,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using NanCrm.Setup;
 using Biggy.Data.Json;
+using Nan.BusinessObjects;
 
 namespace NanCrm
 {
@@ -88,7 +89,7 @@ namespace NanCrm
             switch (tag.ID)
             {
                 case MenuID.Setup_Country:
-                    Country cty = new Country();
+                    Country cty = new Country(BOIDEnum.Country);
                     cty.MdiParent = this.MdiParent;
                     cty.Show();
                     break;
@@ -96,7 +97,7 @@ namespace NanCrm
                     
                     break;
                 case MenuID.BP_MD:
-                    BPMD bpmd = new BPMD();
+                    BPMD bpmd = new BPMD(BOIDEnum.BP);
                     bpmd.MdiParent = this.MdiParent;
                     bpmd.Show();
                     break;

@@ -44,6 +44,15 @@ namespace Nan.BusinessObjects
             }
         }
 
+        public virtual bool Add()
+        {
+            return true;
+        }
+        public virtual bool Update()
+        {
+            return true;
+        }
+
         public string GetEnumDescription(Enum enumValue)
         {
             string str = enumValue.ToString();
