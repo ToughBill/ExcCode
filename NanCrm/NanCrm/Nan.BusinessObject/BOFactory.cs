@@ -25,7 +25,7 @@ namespace Nan.BusinessObjects
                 default: break;
             }
 
-            return null;
+            return bo;
         }
     }
 }

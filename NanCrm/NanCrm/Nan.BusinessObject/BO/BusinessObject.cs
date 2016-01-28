@@ -5,6 +5,7 @@ using System.Text;
 using Nan.Database;
 using Biggy.Data.Json;
 using Biggy.Core;
+using System.Collections;
 
 namespace Nan.BusinessObjects
 {
@@ -61,6 +62,14 @@ namespace Nan.BusinessObjects
             if (objs == null || objs.Length == 0) return str;
             System.ComponentModel.DescriptionAttribute da = (System.ComponentModel.DescriptionAttribute)objs[0];
             return da.Description;
+        }
+
+        public virtual List<T> GetDataList<T>() where T : new()
+        {
+            JsonStore<T> tbObj = new JsonStore<T>(m_dbConn);
+            var objList = new BiggyList<T>(tbObj);
+
+            return objList.GetList();
         }
     }
 

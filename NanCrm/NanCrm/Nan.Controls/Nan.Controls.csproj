@@ -55,6 +55,12 @@
     <Compile Include="FormEx.Designer.cs">
       <DependentUpon>FormEx.cs</DependentUpon>
     </Compile>
+    <Compile Include="ObjectGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectGrid.Designer.cs">
+      <DependentUpon>ObjectGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -75,6 +81,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ThirdParty\ObjectListView\ObjectListView2010.csproj">
+      <Project>{18FEDA0C-D147-4286-B39A-01204808106A}</Project>
+      <Name>ObjectListView2010</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Nan.BusinessObject\Nan.BusinessObject.csproj">
       <Project>{62593AF0-D51F-4D94-A38F-9190CB776F6E}</Project>
       <Name>Nan.BusinessObject</Name>

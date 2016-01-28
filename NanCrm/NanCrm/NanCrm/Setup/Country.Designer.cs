@@ -40,6 +40,7 @@
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(12, 326);
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 

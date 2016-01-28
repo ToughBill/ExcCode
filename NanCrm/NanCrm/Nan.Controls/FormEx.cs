@@ -13,7 +13,7 @@ namespace Nan.Controls
     public partial class FormEx : Form
     {
         private BOIDEnum m_boId;
-        private BusinessObject m_bo;
+        protected BusinessObject m_bo;
         public BusinessObject BO
         {
             get { return m_bo; }
@@ -95,19 +95,6 @@ namespace Nan.Controls
         protected virtual void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        protected virtual void btnOk_Click(object sender, EventArgs e)
-        {
-            if (m_formMode == FormMode.Ok)
-            {
-                this.Close();
-            }
-            else if (m_formMode == FormMode.Update)
-            {
-
-                m_bo.Update();
-            }
         }
     }
 
