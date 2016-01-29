@@ -164,52 +164,9 @@ namespace Biggy.Data.Json
 
         public int Update(T item)
         {
-            if (_items.Contains(item))
-            {
-                var itemFromList = _items.ElementAt(_items.IndexOf(item));
-                if (!ReferenceEquals(itemFromList, item))
-                {
-                    // The items are "equal" but do not refer to the same instance.
-                    // Somebody overrode Equals on the type passed as an argument. Replace:
-                    int index = _items.IndexOf(item);
-                    _items.RemoveAt(index);
-                    _items.Insert(index, item);
-                }
-            }
-            else
-            {
-                var properties = item.GetType().GetProperties();
-                var itemKeyProperty = properties.FirstOrDefault(p => p.Name == KeyName);
-                if (itemKeyProperty != null)
-                {
-                    var itemKeyValue = itemKeyProperty.GetValue(item, null);
-                    foreach (var dataItem in _items)
-                    {
-                        var dataItemAsDictionary = dataItem.ToDictionary();
-                        if (dataItemAsDictionary[KeyName].Equals(itemKeyValue))
-                        {
-                            int index = _items.IndexOf(dataItem);
-                            _items.Remove(dataItem);
-                            _items.Insert(index, item);
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    throw new Exception("The Key property for the object to be updated is null or is not defined.");
-                }
-            }
-            if (this.FlushToDisk())
-            {
-                return 1;
-            }
-            return 0;
-        }
-
-        public virtual int Update(IEnumerable<T> items)
-        {
-            foreach (var item in items)
+            var properties = item.GetType().GetProperties();
+            var itemKeyProperty = properties.FirstOrDefault(p => p.Name == KeyName);
+            if (itemKeyProperty == null)
             {
                 if (_items.Contains(item))
                 {
@@ -222,40 +179,191 @@ namespace Biggy.Data.Json
                         _items.RemoveAt(index);
                         _items.Insert(index, item);
                     }
-                    // Otherwise, the item passed is reference-equal. item now refers to it. Process as normal
+                }
+            }
+            else
+            {
+                bool isExist = false;
+                var itemKeyValue = itemKeyProperty.GetValue(item, null);
+                T findItem = new T();
+                foreach (var ii in _items)
+                {
+                    var pros = ii.GetType().GetProperties();
+                    var keyPro = pros.FirstOrDefault(p => p.Name == KeyName);
+                    if (keyPro != null)
+                    {
+                        var keyValue = keyPro.GetValue(ii, null);
+                        //it's tricky here, because the type of itemKeyValue and keyValue is object, so we can't use '==' to compare them directly, 
+                        //mostly we use int type as key field, so convert to string to compare them
+                        if (itemKeyValue.ToString() == keyValue.ToString())
+                        {
+                            findItem = ii;
+                            isExist = true;
+                            break;
+                        }
+                    }
+                }
+                if (isExist)
+                {
+                    if (!item.Equals(findItem))
+                    {
+                        int index = _items.IndexOf(findItem);
+                        _items.RemoveAt(index);
+                        _items.Insert(index, item);
+                    }
                 }
                 else
                 {
-                    // The item is NOT reference equal to an item in the data store:
-                    var properties = item.GetType().GetProperties();
-                    var itemKeyProperty = properties.FirstOrDefault(p => p.Name == KeyName);
-                    if (itemKeyProperty != null)
+                    _items.Add(item);
+                }
+            }
+
+            //if (_items.Contains(item))
+            //{
+            //    var itemFromList = _items.ElementAt(_items.IndexOf(item));
+            //    if (!ReferenceEquals(itemFromList, item))
+            //    {
+            //        // The items are "equal" but do not refer to the same instance.
+            //        // Somebody overrode Equals on the type passed as an argument. Replace:
+            //        int index = _items.IndexOf(item);
+            //        _items.RemoveAt(index);
+            //        _items.Insert(index, item);
+            //    }
+            //}
+            //else
+            //{
+            //    var properties = item.GetType().GetProperties();
+            //    var itemKeyProperty = properties.FirstOrDefault(p => p.Name == KeyName);
+            //    if (itemKeyProperty != null)
+            //    {
+            //        var itemKeyValue = itemKeyProperty.GetValue(item, null);
+            //        foreach (var dataItem in _items)
+            //        {
+            //            var dataItemAsDictionary = dataItem.ToDictionary();
+            //            if (dataItemAsDictionary[KeyName].Equals(itemKeyValue))
+            //            {
+            //                int index = _items.IndexOf(dataItem);
+            //                _items.Remove(dataItem);
+            //                _items.Insert(index, item);
+            //                break;
+            //            }
+            //        }
+            //    }
+            //    else
+            //    {
+            //        throw new Exception("The Key property for the object to be updated is null or is not defined.");
+            //    }
+            //}
+            if (this.FlushToDisk())
+            {
+                return 1;
+            }
+            return 0;
+        }
+
+        public virtual int Update(IEnumerable<T> items)
+        {
+            foreach (var item in items)
+            {
+                var properties = item.GetType().GetProperties();
+                var itemKeyProperty = properties.FirstOrDefault(p => p.Name == KeyName);
+                if (itemKeyProperty == null)
+                {
+                    if (_items.Contains(item))
                     {
-                        var itemKeyValue = itemKeyProperty.GetValue(item, null);
-                        foreach (var dataItem in _items)
+                        var itemFromList = _items.ElementAt(_items.IndexOf(item));
+                        if (!ReferenceEquals(itemFromList, item))
                         {
-                            // Keep track of those already updated. This might matter over a large
-                            // dataset:
-                            var alreadyUpdated = new List<T>();
-                            if (!alreadyUpdated.Contains(dataItem))
+                            // The items are "equal" but do not refer to the same instance.
+                            // Somebody overrode Equals on the type passed as an argument. Replace:
+                            int index = _items.IndexOf(item);
+                            _items.RemoveAt(index);
+                            _items.Insert(index, item);
+                        }
+                        // Otherwise, the item passed is reference-equal. item now refers to it. Process as normal
+                    }
+                }
+                else
+                {
+                    bool isExist = false;
+                    var itemKeyValue = itemKeyProperty.GetValue(item,null);
+                    T findItem = new T();
+                    foreach (var ii in _items)
+                    {
+                        var pros = ii.GetType().GetProperties();
+                        var keyPro = pros.FirstOrDefault(p => p.Name == KeyName);
+                        if (keyPro != null)
+                        {
+                            var keyValue = keyPro.GetValue(ii,null);
+                            //it's tricky here, because the type of itemKeyValue and keyValue is object, so we can't use '==' to compare them directly, 
+                            //mostly we use int type as key field, so convert to string to compare them
+                            if (itemKeyValue.ToString() == keyValue.ToString())
                             {
-                                var dataItemAsDictionary = dataItem.ToDictionary();
-                                if (dataItemAsDictionary[KeyName].Equals(itemKeyValue))
-                                {
-                                    int index = _items.IndexOf(dataItem);
-                                    _items.Remove(dataItem);
-                                    _items.Insert(index, item);
-                                    alreadyUpdated.Add(dataItem);
-                                    break;
-                                }
+                                findItem = ii;
+                                isExist = true;
+                                break;
                             }
+                        }
+                    }
+                    if (isExist)
+                    {
+                        if (!item.Equals(findItem))
+                        {
+                            int index = _items.IndexOf(findItem);
+                            _items.RemoveAt(index);
+                            _items.Insert(index, item);
                         }
                     }
                     else
                     {
-                        throw new Exception("The Key property for the object to be updated is null or is not defined.");
+                        _items.Add(item);
                     }
                 }
+
+            //    if (_items.Contains(item))
+            //    {
+            //        var itemFromList = _items.ElementAt(_items.IndexOf(item));
+            //        if (!ReferenceEquals(itemFromList, item))
+            //        {
+            //            // The items are "equal" but do not refer to the same instance.
+            //            // Somebody overrode Equals on the type passed as an argument. Replace:
+            //            int index = _items.IndexOf(item);
+            //            _items.RemoveAt(index);
+            //            _items.Insert(index, item);
+            //        }
+            //        // Otherwise, the item passed is reference-equal. item now refers to it. Process as normal
+            //    }
+            //    else
+            //    {
+            //        // The item is NOT reference equal to an item in the data store:
+                    
+            //        if (itemKeyProperty != null)
+            //        {
+            //            var itemKeyValue = itemKeyProperty.GetValue(item, null);
+            //            foreach (var dataItem in _items)
+            //            {
+            //                // Keep track of those already updated. This might matter over a large
+            //                // dataset:
+            //                var alreadyUpdated = new List<T>();
+            //                if (!alreadyUpdated.Contains(dataItem))
+            //                {
+            //                    var dataItemAsDictionary = dataItem.ToDictionary();
+            //                    if (dataItemAsDictionary[KeyName].Equals(itemKeyValue))
+            //                    {
+            //                        int index = _items.IndexOf(dataItem);
+            //                        _items.Remove(dataItem);
+            //                        _items.Insert(index, item);
+            //                        alreadyUpdated.Add(dataItem);
+            //                        break;
+            //                    }
+            //                }
+            //            }
+            //        }
+            //        else
+            //        {
+            //            throw new Exception("The Key property for the object to be updated is null or is not defined.");
+            //        }
+            //    }
             }
             if (this.FlushToDisk())
             {
