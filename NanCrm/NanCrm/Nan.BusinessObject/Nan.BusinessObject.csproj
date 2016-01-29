@@ -43,7 +43,7 @@
     <Compile Include="BO\BOBP.cs" />
     <Compile Include="BOFactory.cs" />
     <Compile Include="BOIDEnum.cs" />
-    <Compile Include="BOIDs.cs" />
+    <Compile Include="BO\BOSequence.cs" />
     <Compile Include="BO\BOProduct.cs" />
     <Compile Include="BO\BusinessObject.cs" />
     <Compile Include="BO\BOProductSearchPlan.cs" />

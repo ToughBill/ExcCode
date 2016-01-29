@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Nan.Controls;
 using BrightIdeasSoftware;
 using Nan.BusinessObjects;
+using Nan.BusinessObjects.BO;
 using System.Collections;
 
 namespace NanCrm.Setup
@@ -29,16 +30,17 @@ namespace NanCrm.Setup
         public void LoadGridData()
         {
             List<BOCountry> ctybos = m_bo.GetDataList<BOCountry>();
-            ctybos.Add(new BOCountry());
+            ctybos.Add((BOCountry)BOFactory.GetBO(m_boId));
             objList.SetObjects(ctybos);
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private bool btnOk_Clicking(object sender, EventArgs e)
         {
             List<BOCountry> obj = (List<BOCountry>)objList.Objects;
             BOCountry objCty = (BOCountry)m_bo;
             objCty.SetDataList(obj);
-            objCty.Update();
+            return objCty.Update();
         }
+
     }
 }

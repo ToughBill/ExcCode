@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Nan.Database;
 using Biggy.Data.Json;
 using Biggy.Core;
 using System.Collections;
+using Nan.BusinessObjects.Database;
 
-namespace Nan.BusinessObjects
+namespace Nan.BusinessObjects.BO
 {
     public class BusinessObject
     {
         protected BOIDEnum m_boId;
         protected NanDataBase m_dbConn;
+        protected List<BOIDEnum> m_relatedBO;
 
         public virtual List<ValidValue> GetValieValue(string keyField, string descField)
         {
@@ -22,16 +23,22 @@ namespace Nan.BusinessObjects
         public BusinessObject()
         {
             m_dbConn = NanDataBase.GetInstance();
+            m_relatedBO = new List<BOIDEnum>() { BOIDEnum.BOSequence};
+        }
+
+        public virtual bool Init()
+        {
+            return true;
         }
 
         public virtual int GetNextID()
         {
-            string tableName = GetEnumDescription(m_boId);
+            //string tableName = GetEnumDescription(m_boId);
 
-            if(!m_dbConn.TableExists(tableName))
-            {
-                return 1;
-            }
+            //if(!m_dbConn.TableExists(tableName))
+            //{
+            //    return 1;
+            //}
             JsonStore<BOSequence> tbID = (JsonStore<BOSequence>)m_dbConn.CreateStoreFor<BOSequence>();
             var boIdList = new BiggyList<BOSequence>(tbID);
             var boid = boIdList.Find(x => x.BOID == (int)m_boId);
@@ -51,6 +58,23 @@ namespace Nan.BusinessObjects
         }
         public virtual bool Update()
         {
+
+            return true;
+        }
+        public virtual bool SetNextID(int id)
+        {
+            JsonStore<BOSequence> tbID = (JsonStore<BOSequence>)m_dbConn.CreateStoreFor<BOSequence>();
+            var boIdList = new BiggyList<BOSequence>(tbID);
+            BOSequence objId = boIdList.Find(x => { return x.BOID == (int)m_boId; });
+            if (objId == null)
+            {
+                boIdList.Add(new BOSequence() { BOID = (int)m_boId, NextID = id + 1 });
+            }
+            else
+            {
+                objId.NextID = id;
+                boIdList.Update(objId);
+            }
             return true;
         }
 
@@ -77,5 +101,11 @@ namespace Nan.BusinessObjects
     {
         public string Value { get; set; }
         public string Description { get; set; }
+
+        public ValidValue(string value, string desc)
+        {
+            Value = value;
+            Description = desc;
+        }
     }
 }

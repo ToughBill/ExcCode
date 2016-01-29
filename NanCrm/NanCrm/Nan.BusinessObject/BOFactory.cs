@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Nan.BusinessObjects.BO;
 
 namespace Nan.BusinessObjects
 {
-    public enum BO 
-    {
-        Invalid = -1,
-        BP,
-        Product
-
-    }
     public class BOFactory
     {
         public static BusinessObject GetBO(BOIDEnum boid)
@@ -24,7 +18,7 @@ namespace Nan.BusinessObjects
                     break;
                 default: break;
             }
-
+            bo.Init();
             return bo;
         }
     }

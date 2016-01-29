@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Nan.BusinessObjects;
+using Nan.BusinessObjects.BO;
 
 namespace Nan.Controls
 {
     public partial class FormEx : Form
     {
-        private BOIDEnum m_boId;
+        protected BOIDEnum m_boId;
         protected BusinessObject m_bo;
         public BusinessObject BO
         {
@@ -92,15 +93,32 @@ namespace Nan.Controls
             base.OnKeyDown(e);
         }
 
-        protected virtual void btnCancel_Click(object sender, EventArgs e)
+        protected virtual bool btnCancel_Clicked(object sender, ClickedEventArgs e)
         {
             this.Close();
+            return true;
         }
+
+        private bool btnOk_Clicked(object sender, ClickedEventArgs e)
+        {
+            if (e.Result)
+            {
+                m_formMode = FormMode.Ok;
+                btnOk.Text = "确定";
+            }
+            else
+            {
+
+            }
+            return true;
+        }
+
     }
 
     public enum FormMode
     {
         Ok,
-        Update
+        Update,
+        Find
     }
 }

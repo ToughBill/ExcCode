@@ -6,7 +6,7 @@ using Biggy.Data.Json;
 using Biggy.Core;
 using System.Collections;
 
-namespace Nan.BusinessObjects
+namespace Nan.BusinessObjects.BO
 {
     public class BOCountry : BusinessObject
     {
@@ -41,6 +41,8 @@ namespace Nan.BusinessObjects
             }
         }
 
+        List<BOCountry> m_newTbCtyList;
+
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -60,14 +62,17 @@ namespace Nan.BusinessObjects
         public BOCountry()
         {
             base.m_boId = BOIDEnum.Country;
-            ID = GetNextID();
-            //m_tbCty = new JsonStore<BOCountry>(m_dbConn);
-            //m_tbCtyList = new BiggyList<BOCountry>(m_tbCty);
         }
+        public override bool Init()
+        {
+            ID = GetNextID();
 
+            return base.Init();
+        }
         public void SetDataList(List<BOCountry> list)
         {
-            CountryList.SetList(list);
+            m_newTbCtyList = list;
+            //CountryList.SetList(list);
         }
 
         public override bool Add()
@@ -79,7 +84,14 @@ namespace Nan.BusinessObjects
         }
         public override bool Update()
         {
-            return TableCountry.FlushToDisk();
+            int maxId = 1;
+            m_newTbCtyList.ForEach(x => { if (x.ID > maxId) maxId = x.ID; });
+
+            if(TableCountry.Update(m_newTbCtyList) == 1)
+            {
+                return base.SetNextID(maxId+1);
+            }
+            return base.Update();
         }
     }
 }

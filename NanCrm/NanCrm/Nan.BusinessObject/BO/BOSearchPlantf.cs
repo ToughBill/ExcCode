@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Nan.BusinessObjects
+namespace Nan.BusinessObjects.BO
 {
     public class BOSearchPlantf : BusinessObject
     {

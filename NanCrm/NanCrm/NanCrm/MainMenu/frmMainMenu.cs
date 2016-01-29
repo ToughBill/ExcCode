@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using NanCrm.Setup;
 using Biggy.Data.Json;
 using Nan.BusinessObjects;
+using Nan.BusinessObjects.BO;
 
 namespace NanCrm
 {

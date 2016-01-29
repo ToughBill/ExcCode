@@ -38,6 +38,6 @@ namespace Nan.BusinessObjects
         Product,
         PSearchPlan,
         PSearchResult,
-        BOID
+        BOSequence
     }
 }

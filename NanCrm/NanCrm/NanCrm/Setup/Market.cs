@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Nan.Controls;
 using Nan.BusinessObjects;
+using Nan.BusinessObjects.BO;
 
 namespace NanCrm.Setup
 {

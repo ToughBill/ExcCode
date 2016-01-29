@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Biggy.Data.Json;
-using Nan.BusinessObjects;
+using Nan.BusinessObjects.BO;
 
-namespace Nan.Database
+namespace Nan.BusinessObjects.Database
 {
     public class NanDataBase : JsonDbCore
     {
@@ -29,5 +29,7 @@ namespace Nan.Database
         {
             m_gNanDBConn = new NanDataBase(dbPath, dbName);
         }
+
+        
     }
 }
