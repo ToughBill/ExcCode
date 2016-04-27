@@ -10,23 +10,26 @@
   <body>
   	<div class="logonCon bgColor" style="height: 100px;">
   		<div class="container">
-  			
+  			<a>
+  				<img src="img/logo_b.png"/>
+  			</a>
   		</div>
   	</div>
   	<div class="navCon bgColor">
   		<div class="container">
 	      	<nav class="navbar navbar-default bgColor">
 		        <div class="container-fluid">
-		          	<div class="navbar-header">
-		          		<!--<a href="#" class="navbar-brand logo" style="padding:0px;"><img src="img/logo.png" alt="SlightMed"></a>-->
-			            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						  	<span class="sr-only">Toggle navigation</span>
-						  	<span class="icon-bar"></span>
-						  	<span class="icon-bar"></span>
-						  	<span class="icon-bar"></span>
-			            </button> 
-		          	</div>
-		          	<div id="navbar" class="navbar-collapse collapse">
+	          	<div class="navbar-header">
+	          		<!--<a href="#" class="navbar-brand logo" style="padding:0px;"><img src="img/logo.png" alt="SlightMed"></a>-->
+		            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							  	<span class="sr-only">Toggle navigation</span>
+							  	<span class="icon-bar"></span>
+							  	<span class="icon-bar"></span>
+							  	<span class="icon-bar"></span>
+		            </button> 
+		            
+	          	</div>
+	          	<div id="navbar" class="navbar-collapse collapse">
 			            <ul class="nav navbar-nav">
 		              		<li class="active"><a href="#">Home</a></li>
 			              	<li class="dropdown">
@@ -41,7 +44,14 @@
 			              	<li><a href="#">About us</a></li>
 			              	
 			            </ul>
+			            <form class="navbar-form navbar-right" role="search" id="navsearch">
+			            	<div class="form-group">
+			            		<input type="text" placeholder="Input product name or number" class="form-control"/>	
+			            	</div>
+			            	<button type="submit" class="btn btn-default">Search</button>
+	            		</form>
 		          	</div><!--/.nav-collapse -->
+		        	
 		        </div><!--/.container-fluid -->
 	      	</nav>
 		</div>
@@ -70,7 +80,7 @@
     		</div>
     		<div class="col-md-9">
     			<div id="rightCon">
-    				<div class="row">
+    				<div class="row" id="carouselCon">
 	    				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				      <!-- Indicators -->
 				      <ol class="carousel-indicators">
@@ -100,66 +110,66 @@
 				    </div><!-- /.carousel -->
 	    			</div>
 	    			<div class="row" id="featureddiv">
-			    		<h4>Featured</h4>
+			    		<h4 id="featuredtitle">Featured</h4>
 			    		<div class="row">
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/1.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/2.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/3.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/4.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/5.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/5.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
 			    		</div>
 			    		<div class="row">
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/1.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/2.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/3.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/4.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/5.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
 			    			</div>
-			    			<div class="col-md-2">
+			    			<div class="col-md-2 col-sm-4">
 			    				<a href="#"><img src="img/product/5.jpg"/></a>
 			    				<a href="#">ISA001</a>
 			    				<p>asfafwf</p>
@@ -170,9 +180,14 @@
     		</div>
     	</div>
     </div>
-    <footer>
+    <footer class="footer">
     	<div class="container">
     		<div class="row">
+    			<p>
+    				<a>Home</a>
+    				<span>|</span>
+    				<a>About us</a>
+    			</p>
     			<p>Copyright 2013, Medsource International Co.,Ltd, No.1703-1705, Building 11#, Lane 225, Jinxiang Road, Pudong,Shanghai 201206 China  All Rights Reserved</p>
     		</div>
     	</div>

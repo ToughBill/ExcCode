@@ -26,26 +26,67 @@
 }
 
 .navbar ul li  a:hover {
-     /*color: green !important;*/
-     background-color: #F69C55 !important;
+    /*color: green !important;*/
+    background-color: #F69C55 !important;
 }
 
 #prolist{
-	border: 1px solid silver;
+	/*border: 1px solid silver;*/
 }
 
 .list-group-item{
 	    padding: 5px 10px !important;
+}
+#carouselCon{
+	padding-top: 15px;	
+}
+#featuredtitle{
+    border-bottom: 2px solid silver;
 }
 #featureddiv{
 	padding-top: 20px;
 }
 #featureddiv img{
 	display: block;
+	border: 1px solid #FFF;
 }
 #featureddiv img:hover{
 	border: 1px solid #CCC;
 }
 #rightCon{
 	padding: 0px 15px;
+}
+
+#navsearch{
+	padding: 0px;
+    margin: 6px 0px;
+}
+
+#navsearch input{
+	line-height: 24px;
+    height: 24px;
+}
+
+#navsearch button{
+	height: 24px;
+    margin: 0px;
+    padding: 0px 5px;
+}
+
+.footer{
+	border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+    margin-top: 30px;
+    padding-top: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+.footer a{
+    display: inline-block;
+    color: #999;
+}
+
+.footer p{
+	text-align: center;
+    margin: 0px;
 }
