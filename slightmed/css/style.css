@@ -53,6 +53,8 @@
 #featureddiv img{
 	display: block;
 	border: 1px solid #FFF;
+	width: 150px;
+	height: 150px;
 }
 #featureddiv img:hover{
 	border: 1px solid #CCC;
