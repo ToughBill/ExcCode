@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular-1.5.8/angular.js"></script>
+</head>
+<body ng-app="myApp">
+    <my-directive></my-directive>
+    <div my-directive my-url="www.baidu.com" my-link-text="www.baidu.com"></div>
+    <script>
+        angular.module('myApp', []).directive('myDirective', function () {
+            return {
+                restrict: 'EAC',
+                template: '<a href="{{myUrl}}">{{myLinkText}}</a>',
+				scope: {
+					myUrl: '@',
+					myLinkText: '@'
+				}
+            };
+        });
+
+    </script>
+</body>
+</html>
