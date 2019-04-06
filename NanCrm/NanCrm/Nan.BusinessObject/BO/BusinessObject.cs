@@ -61,6 +61,10 @@ namespace Nan.BusinessObjects.BO
 
             return true;
         }
+        public virtual bool IsValid()
+        {
+            return true;
+        }
         public virtual bool SetNextID(int id)
         {
             JsonStore<BOSequence> tbID = (JsonStore<BOSequence>)m_dbConn.CreateStoreFor<BOSequence>();

@@ -42,5 +42,18 @@ namespace NanCrm.Setup
             return objCty.Update();
         }
 
+        private void objList_CellEditValidating(object sender, CellEditEventArgs e)
+        {
+            if (e.SubItemIndex != 1 || e.ListViewItem.Index == e.ListViewItem.ListView.Items.Count-1)
+            {
+                return;
+            }
+            if (string.IsNullOrEmpty((string)e.NewValue))
+            {
+                e.Cancel = true;
+                MessageBox.Show("input error!");
+            }
+        }
+
     }
 }

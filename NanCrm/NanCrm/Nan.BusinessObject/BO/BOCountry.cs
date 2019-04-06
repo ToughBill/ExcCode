@@ -74,7 +74,13 @@ namespace Nan.BusinessObjects.BO
             m_newTbCtyList = list;
             //CountryList.SetList(list);
         }
-
+        public override bool IsValid()
+        {
+            BOCountry findEle = m_newTbCtyList.Find(x => { return string.IsNullOrEmpty(x.Name); });
+            if (findEle != null)
+                return false;
+            return true;
+        }
         public override bool Add()
         {
             JsonStore<BOCountry> tbID = (JsonStore<BOCountry>)m_dbConn.CreateStoreFor<BOCountry>();
@@ -84,6 +90,10 @@ namespace Nan.BusinessObjects.BO
         }
         public override bool Update()
         {
+            if (!IsValid())
+            {
+                return false;
+            }
             int maxId = 1;
             m_newTbCtyList.ForEach(x => { if (x.ID > maxId) maxId = x.ID; });
 
